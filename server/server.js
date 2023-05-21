@@ -5,6 +5,7 @@ const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
 const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -20,10 +21,13 @@ app.use(express.json());
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
+  console.log('in production');
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
 app.get('/', (req, res) => {
+  let paththingy = path.join(__dirname, '../client/build/index.html');
+  console.log(paththingy);
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
