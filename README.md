@@ -28,12 +28,12 @@ This application is covered under the Apache commons public software license
 
 
   ```
-  npm i
+  npm run install
   ```
   
   ## Usage
   
-  1. Go to root directory and install using npm i
+  1. Go to root directory and install using the installation command
 
   2. Then run command: npm run develop
 
